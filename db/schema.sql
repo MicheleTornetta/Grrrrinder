@@ -11,7 +11,7 @@ CREATE TABLE owner (
     owner_first_name VARCHAR(30) NOT NULL,
     owner_last_name VARCHAR (30), --leave this as optional? Should we even have this? 
     owner_location VARCHAR(30) NOT NULL, --just ask for zip code here? 
-    username VARCHAR (30) NOT NULL, --email address or allow to choose? 
+    username VARCHAR (30) NOT NULL, --email address
     password VARCHAR(30) NOT NULL, --enrypted 
     PRIMARY KEY (id)
 );
@@ -23,7 +23,7 @@ CREATE TABLE dog (
     dog_gender  -- male, female
     dog_size  -- small, medium, large, extra large 
     dog_age DECIMAL NOT NUll, 
-    dog_vaccinations --yes/no or do we want them to list out what vacciations they have? 
+    dog_vaccinations --yes/no 
     dog_neuter_spayed --yes/no 
     dog_temperment VARCHAR(200) NOT NULL,
     dog_notes VARCHAR(200),
@@ -39,4 +39,4 @@ CREATE TABLE meetup (
     PRIMARY KEY (id)
 );
 
--- how do we add a messaging capability? not sure where that goes or if we keep track of the messages in the db. I guess we could also just have a link to email the user? 
+-- link to instagram or email to connect people 
