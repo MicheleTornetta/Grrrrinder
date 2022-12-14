@@ -4,22 +4,31 @@ const DogMeetUp = require('./DogMeetUp');
 const MeetUp = require('./Meetup');
 const Owner = require('./Owner');
 
-// A dog can go to many meetups  - many to many relationship 
-Dog.hasMany(MeetUp, {
-    foreignKey: 'meetup_id',
-});
 
 // A meetup can have more than one dog 
 MeetUp.belongsToMany(Dog, {
     through: DogMeetUp,
-    foreignKey: "meetup_id"
+    foreignKey: "meetup_id",
+    onDelete: 'CASCADE',
 });
 
 Dog.belongsToMany(MeetUp, {
     through: DogMeetUp,
-    foreignKey: "dog_id"
+    foreignKey: "dog_id",
+    onDelete: 'CASCADE'
 });
 
+// An owner can have many dogs
+Owner.hasMany(Dog, {
+    foreignKey: 'owner_id',
+    onDelete: 'CASCADE',
+});
+
+// A dog can only have one owner
+Dog.belongsTo(Owner, {
+    foreignKey: 'owner_id',
+    onDelete: 'CASCADE',
+});
 
 module.exports = {
     Dog,
