@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Meetup } = require('../../models');
+const { Dog, Meetup, Owner } = require('../../models');
 
 // GET all dogs 
 router.get('/', async (req, res) => {
     try {
-        const dogData = await Dogs.findAll({
+        const dogData = await Dog.findAll({
             include: [{ model: Meetup }]
         });
         res.status(200).json(dogData);
