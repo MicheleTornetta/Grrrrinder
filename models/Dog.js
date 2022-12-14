@@ -34,7 +34,7 @@ Dog.init(
        },
        //dog_age:
        dog_age: {
-        type: DataTypes.DECIMAL(3,0), //maximum age is 999 years old.
+        type: DataTypes.DECIMAL(2,0), //maximum age is 15 years old.
         allowNull: false,
         validate: {
             isDecimal: true,
@@ -42,12 +42,12 @@ Dog.init(
        },
        //dog_vaccinations:
        dog_vaccinations: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,
         allowNull: false,
        },
        //dog_neuter_sprayed:
        dog_neuter_sprayed: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,
         allowNull: false,
        },
        //dog_temperment:
@@ -60,10 +60,22 @@ Dog.init(
         type: DataTypes.STRING,
         allowNull: false,
        },
-       //dog_picture: <- not sure if this is needed? Check w/tutor.
-    //    dog_picture: {
+    //    dog_picture:
+          dog_picture: {
+          type: DataTypes.STRING,
+          //will need to add the URL to cloudinary 
+            //https://cloudinary.com/ip/gr-sea-gg-brand-home-base?utm_source=google&utm_medium=search&utm_campaign=goog_selfserve_brand_wk22_replicate_core_branded_keyword&utm_term=1329&campaignid=17601148700&adgroupid=141182782954&keyword=cloudinary&device=c&matchtype=e&adposition=&gclid=CjwKCAiAheacBhB8EiwAItVO2xJwiDyMd9ZMVPW9rZ7ReTcrEWq63OhxRKT4Sij03qDannvP6S55vRoCNaoQAvD_BwE
+       },
 
-    //    }
+    //owner_id
+       owner_id: {
+        type: DataTypes.INTEGER,
+         // * References the `Owner` model's `id`.
+        references: {
+            model: 'owner',
+            key: 'id',
+        },
+       },
     },
     {
         sequelize,
