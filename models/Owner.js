@@ -1,6 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+const { Models, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const SALT = 15;
 
 class Owner extends Model {
     checkPassword(loginPw) {
@@ -36,6 +37,11 @@ Owner.init(
             isEmail: true,
         },
     },
+    //username
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     //password:
     password: {
         type: DataTypes.STRING,
@@ -46,7 +52,6 @@ Owner.init(
             // },
         },
     },
-
     {   
         hooks: {
           beforeCreate: async (newOwnerData) => {
