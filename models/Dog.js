@@ -47,7 +47,7 @@ Dog.init(
         allowNull: false,
        },
        //dog_neuter_sprayed:
-       dog_neuter_sprayed: {
+       dog_neuter_spayed: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
        },

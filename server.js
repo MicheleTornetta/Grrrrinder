@@ -8,7 +8,7 @@ const hbs = exphbs.create({});
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-const { Dog, Meetup, Owner } = require('./models');
+const { Dog, Owner } = require('./models');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
