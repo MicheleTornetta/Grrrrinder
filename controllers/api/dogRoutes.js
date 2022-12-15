@@ -47,16 +47,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const dogData = await Dog.update(req.body, {
-            //   dog_name: req.body.dog_name,
-            //   dog_breed: req.body.dog_breed,
-            //   dog_gender: req.body.dog_gender,
-            //   dog_size: req.body.dog_size,
-            //   dog_age: req.body.dog_age,
-            //   dog_vaccinations: req.body.dog_vaccinations,
-            //   dog_neuter_spayed: req.body.dog_neuter_spayed,
-            //   dog_temperment: req.body.dog_temperment,
-            //   dog_notes: req.body.dog_notes,
-            //   dog_picture: req.body.dog_picture, //not sure how to do this yet
+           
             where: {
                 id: req.params.id,
             }
