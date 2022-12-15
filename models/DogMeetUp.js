@@ -23,15 +23,15 @@ DogMeetUp.init(
             },
         },
         //meetup_id:
-        meetup_id: {
-            type: DataTypes.INTEGER,
+        // meetup_id: {
+        //     type: DataTypes.INTEGER,
 
-               // * References the `Meetup` model's `id`.
-            references: {
-                model: 'meetup',
-                key: 'id',
-            },
-        },
+        //        // * References the `Meetup` model's `id`.
+        //     references: {
+        //         model: 'meetup',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
     sequelize,
