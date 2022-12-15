@@ -1,22 +1,22 @@
 //import models
 const Dog = require('./Dog');
 const DogMeetUp = require('./DogMeetUp');
-const MeetUp = require('./Meetup');
+// const MeetUp = require('./Meetup');
 const Owner = require('./Owner');
 
 
 // A meetup can have more than one dog 
-MeetUp.belongsToMany(Dog, {
-    through: DogMeetUp,
-    foreignKey: "meetup_id",
-    onDelete: 'CASCADE',
-});
+// MeetUp.belongsToMany(Dog, {
+//     through: DogMeetUp,
+//     foreignKey: "meetup_id",
+//     onDelete: 'CASCADE',
+// });
 
-Dog.belongsToMany(MeetUp, {
-    through: DogMeetUp,
-    foreignKey: "dog_id",
-    onDelete: 'CASCADE'
-});
+// Dog.belongsToMany(MeetUp, {
+//     through: DogMeetUp,
+//     foreignKey: "dog_id",
+//     onDelete: 'CASCADE'
+// });
 
 // An owner can have many dogs
 Owner.hasMany(Dog, {
@@ -33,6 +33,6 @@ Dog.belongsTo(Owner, {
 module.exports = {
     Dog,
     DogMeetUp,
-    MeetUp,
+    // MeetUp,
     Owner,
 };

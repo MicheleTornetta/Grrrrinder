@@ -34,11 +34,12 @@ Dog.init(
        },
        //dog_age:
        dog_age: {
-        type: DataTypes.DECIMAL(2,0), //maximum age is 15 years old.
-        allowNull: false,
-        validate: {
-            isDecimal: true,
-        }
+        type: DataTypes.STRING, 
+        // type: DataTypes.DECIMAL(2,0), //maximum age is 15 years old.
+        // allowNull: false,
+        // validate: {
+        //     isDecimal: true,
+        // }
        },
        //dog_vaccinations:
        dog_vaccinations: {
@@ -76,6 +77,28 @@ Dog.init(
             key: 'id',
         },
        },
+
+    // TAKEN FROM THE 'MEETUP' MODEL   
+    //preferred_days:
+    preferred_days: {
+        type: DataTypes.STRING,
+        // type: DataTypes.DATE,
+        allowNull: false,
+        // validate: {
+        //     isDate: true, //only allows date strings
+        // }
+     },
+     //preferred_times:
+     preferred_times: {
+        type: DataTypes.STRING,
+        allowNull: false,
+     },
+     //preferred_location:
+      preferred_location: {
+         type: DataTypes.STRING, //since the location would be a string of numbers
+         allowNull: false,
+      },
+      
     },
     {
         sequelize,
