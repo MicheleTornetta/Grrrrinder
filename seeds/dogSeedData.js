@@ -13,7 +13,7 @@ const dogData = [
         dog_notes: "She would prefer another female, smaller dog to play with",
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671070887/kiaatkrq1tfsgojzmfsb",
         owner_id: 1,
-        preferred_days: "Monday",
+        preferred_days: 1,
         preferred_timeofday: "Evening",
         preferred_location: 19147
     },
@@ -29,7 +29,7 @@ const dogData = [
         dog_notes: "She would prefer another female dog",
         dog_picture: "http://res.cloudinary.com/dh82x6mau/image/upload/v1671138429/dn1rsebxgo1hlhifvkxs", 
         owner_id: 2,
-        preferred_days: "Tuesday",
+        preferred_days: 1,
         preferred_timeofday: "Afternoon",
         preferred_location: 19125
     },
@@ -45,7 +45,7 @@ const dogData = [
         dog_notes: "Gets along with all dogs and people",
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139291/wzyx06xmhdgrbttt5oim",
         owner_id: 3,
-        preferred_days: "Wednesday",
+        preferred_days: 1,
         preferred_timeofday: "Morning",
         preferred_location: 19145
     },
@@ -61,7 +61,7 @@ const dogData = [
         dog_notes: "He would perfer a smaller, calmer dog to meet with",
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139410/yv5ndyqoihfub2stesjy",
         owner_id: 4,
-        preferred_days: "Thursday",
+        preferred_days: 1,
         preferred_timeofday: "Evening",
         preferred_location: 19145
     },
@@ -77,7 +77,7 @@ const dogData = [
         dog_notes: "Gender doesn't really matter, but it should be a slow introduction",
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139503/y123v1mg2juna7r8cqkj", 
         owner_id: 5,
-        preferred_days: "Saturday",
+        preferred_days: 1,
         preferred_timeofday: "Afternoon",
         preferred_location: 19147
     }
