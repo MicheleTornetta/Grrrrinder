@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
+const {Op} = require('sequelize');
 
 // GET all dogs 
 router.get('/', async (req, res) => {
@@ -15,21 +16,30 @@ router.get('/', async (req, res) => {
 });
 
 // GET dogs based on specific search criteria - figure out how to get the search criteria in here 
-// router.get('/:??', async (req, res) => { 
-//     try {
-//       const dogData = await Dog.findByPk(req.params.??, {
-//         incldue: [{ model: Meetup }],
-//       })
+router.get('/', async (req, res) => { 
+    try {
+      const dogData = await Dog.findAll({
+        where: { //need two different versions of this 
+            [Op.and]: [
+                {
+                    dog_age: "Youth"
+                },
+                {
+                    dog_vaccination: true
+                },
+            ]
+        }
+      })
 
-//       if (!dogData) {
-//         res.status(404).json({ message: "No dogs found meeting that search criteria"});
-//         return;
-//       }
-//       res.status(200).json(dogData);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//     });
+      if (!dogData) {
+        res.status(404).json({ message: "No dogs found meeting that search criteria"});
+        return;
+      }
+      res.status(200).json(dogData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+    });
 
 // CREATE new dog profile 
 router.post('/', async (req, res) => {
