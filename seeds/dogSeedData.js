@@ -14,7 +14,7 @@ const dogData = [
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671070887/kiaatkrq1tfsgojzmfsb",
         owner_id: 1,
         preferred_days: "Monday",
-        preferred_times: "Evening",
+        preferred_timeofday: "Evening",
         preferred_location: 19147
     },
     {
@@ -30,7 +30,7 @@ const dogData = [
         dog_picture: "http://res.cloudinary.com/dh82x6mau/image/upload/v1671138429/dn1rsebxgo1hlhifvkxs", 
         owner_id: 2,
         preferred_days: "Tuesday",
-        preferred_times: "Afternoon",
+        preferred_timeofday: "Afternoon",
         preferred_location: 19125
     },
     {
@@ -46,7 +46,7 @@ const dogData = [
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139291/wzyx06xmhdgrbttt5oim",
         owner_id: 3,
         preferred_days: "Wednesday",
-        preferred_times: "Morning",
+        preferred_timeofday: "Morning",
         preferred_location: 19145
     },
     {
@@ -62,7 +62,7 @@ const dogData = [
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139410/yv5ndyqoihfub2stesjy",
         owner_id: 4,
         preferred_days: "Thursday",
-        preferred_times: "Evening",
+        preferred_timeofday: "Evening",
         preferred_location: 19145
     },
     {
@@ -78,7 +78,7 @@ const dogData = [
         dog_picture: "https://res.cloudinary.com/dh82x6mau/image/upload/v1671139503/y123v1mg2juna7r8cqkj", 
         owner_id: 5,
         preferred_days: "Saturday",
-        preferred_times: "Afternoon",
+        preferred_timeofday: "Afternoon",
         preferred_location: 19147
     }
 ];
