@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const { Op } = require('sequelize');
-const checkAuth = require("../auth/authentication");
 
 // GET all dogs 
-router.get('/', checkAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const dogData = await Dog.findAll({
             // owner_id: req.session.owner,
@@ -47,7 +46,7 @@ router.get('/', checkAuth, async (req, res) => {
 });
 
 // CREATE new dog profile 
-router.post('/', checkAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const dogData = await Dog.create({
             // owner_id: req.session.owner,
@@ -75,7 +74,7 @@ router.post('/', checkAuth, async (req, res) => {
 });
 
 // UPDTATE dog profile 
-router.put('/:id', checkAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         // owner_id: req.session.owner,
         const dogData = await Dog.update(req.body, {
@@ -94,7 +93,7 @@ router.put('/:id', checkAuth, async (req, res) => {
 });
 
 // DELETE dog profile
-router.delete('/:id', checkAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const dogData = await Dog.destroy({
             // owner_id: req.session.owner,
