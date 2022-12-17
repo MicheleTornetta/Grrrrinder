@@ -1,7 +1,5 @@
 //import models
 const Dog = require('./Dog');
-const DogMeetUp = require('./DogMeetUp');
-// const MeetUp = require('./Meetup');
 const Owner = require('./Owner');
 
 
@@ -32,7 +30,5 @@ Dog.belongsTo(Owner, {
 
 module.exports = {
     Dog,
-    DogMeetUp,
-    // MeetUp,
     Owner,
 };
