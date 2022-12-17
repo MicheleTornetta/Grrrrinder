@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require ('path');
 const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
@@ -9,9 +10,12 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 const { Dog, Owner } = require('./models');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(routes);
@@ -34,13 +38,13 @@ sequelize.sync({ force: false }).then(() => {
 // //Logout User if not active after 10 min
 
 // app.use('*', (req, res, next) => {
-//   if (req.session.user) {
+//   if (req.session.owner) {
 //     const lastSeen = req.session.lastSeen;
 //     let diff = (Date.now() - lastSeen) / 1000;
 
 //     // If inactive for 5 min, reset their session
 //     if (diff > 10 * 60) {
-//       req.session.user = undefined;
+//       req.session.owner = undefined;
 //       req.session.lastSeen = undefined;
 //       res.redirect('/login');
 //     }
