@@ -8,7 +8,7 @@ const { Op } = require('sequelize');
 router.get('/', async (req, res) => {
     try {
         const dogData = await Dog.findAll({
-            // owner_id: req.session.owner,
+        
         });
         res.status(200).json(dogData);
     }
@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
 router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req, res) => {
     try {
         const dogData = await Dog.findAll({
-            // owner_id: req.session.owner,
             where: { //need two different versions of this per Anthony? 
                 [Op.or]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
                     { dog_gender: req.params.one },
@@ -48,11 +47,10 @@ router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req
 });
 
 // CREATE new dog profile 
-router.post('/', async (req, res) => {
+router.post('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.create({
-            // owner_id: req.session.owner,
-            dog_id: req.params.id,
+            owner_id: req.session.owner,
             dog_name: req.body.dog,
             dog_breed: req.body.dog,
             dog_gender: req.body.dog,
@@ -76,12 +74,12 @@ router.post('/', async (req, res) => {
 });
 
 // UPDTATE dog profile 
-router.put('/:id', async (req, res) => {
+router.put('/:id', checkAuth, async (req, res) => {
     try {
-        // owner_id: req.session.owner,
-        const dogData = await Dog.update(req.body, {
+         const dogData = await Dog.update(req.body, {
 
             where: {
+                owner_id: req.session.owner,
                 id: req.params.id,
             }
         });
@@ -98,8 +96,8 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const dogData = await Dog.destroy({
-            // owner_id: req.session.owner,
             where: {
+                owner_id: req.session.owner,
                 id: req.params.id,
             }
         })
