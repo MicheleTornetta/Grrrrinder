@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { Dog, Owner } = require('../../models');
 const { Op } = require('sequelize');
 const checkAuth = require("../auth/authentication");
