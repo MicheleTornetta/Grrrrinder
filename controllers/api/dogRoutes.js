@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
+const checkAuth = require("../auth/authentication");
 const { Op } = require('sequelize');
 
 // GET all dogs 
