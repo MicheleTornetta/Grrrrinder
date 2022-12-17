@@ -17,33 +17,33 @@ router.get('/', checkAuth, async (req, res) => {
 });
 
 // GET dogs based on specific search criteria
-router.get('/', checkAuth, async (req, res) => {
-    try {
-        const dogData = await Dog.findAll({
-            where: { //need two different versions of this per Anthony? 
-                [Op.or]: [ //is or correct here? 
-                    { dog_gender: req.params.dog_gender },
-                    { dog_size: req.params.dog_size },
-                    { dog_age: req.params.dog_age },
-                    { dog_vaccination: req.params.dog_vaccination },
-                    { dog_neuter_spayed: req.params.dog_neuter_spayed },
-                    { dog_temperment: req.params.dog_temperment },
-                    { preferred_days: req.params.preferred_days },
-                    { preferred_timeofday: req.params.preferred_timeofday },
-                    { preferred_location: req.params.preferred_location },
-                ]
-            }
-        })
+// router.get('/', checkAuth, async (req, res) => {
+//     try {
+//         const dogData = await Dog.findAll({
+//             where: { //need two different versions of this per Anthony? 
+//                 [Op.or]: [ //is or correct here? 
+//                     { dog_gender: req.params.dog_gender },
+//                     { dog_size: req.params.dog_size },
+//                     { dog_age: req.params.dog_age },
+//                     { dog_vaccination: req.params.dog_vaccination },
+//                     { dog_neuter_spayed: req.params.dog_neuter_spayed },
+//                     { dog_temperment: req.params.dog_temperment },
+//                     { preferred_days: req.params.preferred_days },
+//                     { preferred_timeofday: req.params.preferred_timeofday },
+//                     { preferred_location: req.params.preferred_location },
+//                 ]
+//             }
+//         })
 
-        if (!dogData) {
-            res.status(404).json({ message: "No dogs found meeting that search criteria" });
-            return;
-        }
-        res.status(200).json(dogData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         if (!dogData) {
+//             res.status(404).json({ message: "No dogs found meeting that search criteria" });
+//             return;
+//         }
+//         res.status(200).json(dogData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
