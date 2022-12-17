@@ -38,13 +38,13 @@ sequelize.sync({ force: false }).then(() => {
 // //Logout User if not active after 10 min
 
 // app.use('*', (req, res, next) => {
-//   if (req.session.user) {
+//   if (req.session.owner) {
 //     const lastSeen = req.session.lastSeen;
 //     let diff = (Date.now() - lastSeen) / 1000;
 
 //     // If inactive for 5 min, reset their session
 //     if (diff > 10 * 60) {
-//       req.session.user = undefined;
+//       req.session.owner = undefined;
 //       req.session.lastSeen = undefined;
 //       res.redirect('/login');
 //     }
