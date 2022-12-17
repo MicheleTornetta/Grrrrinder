@@ -7,7 +7,7 @@ const checkAuth = require("../auth/authentication");
 router.get('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.findAll({
-
+            // owner_id: req.session.owner,
         });
         res.status(200).json(dogData);
     }
@@ -20,6 +20,7 @@ router.get('/', checkAuth, async (req, res) => {
 router.get('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.findAll({
+            // owner_id: req.session.owner,
             where: { //need two different versions of this per Anthony? 
                 [Op.or]: [ //is or correct here? 
                     { dog_gender: req.params.dog_gender },
@@ -48,7 +49,23 @@ router.get('/', checkAuth, async (req, res) => {
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
     try {
-        const dogData = await Dog.create(req.body) //unsure if I need to put all of the questions in here
+        const dogData = await Dog.create({
+            // owner_id: req.session.owner,
+            dog_id: req.params.id,
+            dog_name: req.body.dog,
+            dog_breed: req.body.dog,
+            dog_gender: req.body.dog,
+            dog_size: req.body.dog,
+            dog_age: req.body.dog,
+            dog_vaccinations: req.body.dog,
+            dog_neuter_spayed: req.body.dog,
+            dog_temperment: req.body.dog,
+            dog_notes: req.body.dog,
+            dog_picture: req.body.dog,
+            preferred_days: req.body.dog,
+            preferred_timeofday: req.body.dog,
+            preferred_location: req.body.dog,
+        }); //unsure if I need to put all of the questions in here
 
         res.status(200).json(dogData);
 
@@ -60,6 +77,7 @@ router.post('/', checkAuth, async (req, res) => {
 // UPDTATE dog profile 
 router.put('/:id', checkAuth, async (req, res) => {
     try {
+        // owner_id: req.session.owner,
         const dogData = await Dog.update(req.body, {
 
             where: {
@@ -79,6 +97,7 @@ router.put('/:id', checkAuth, async (req, res) => {
 router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.destroy({
+            // owner_id: req.session.owner,
             where: {
                 id: req.params.id,
             }
