@@ -9,14 +9,10 @@
   }, (error, result) => {
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
-      // {{!-- fetch here.... Sam will add later 
-      // or build a dog object dog.image = blahblah --}}
+
       var dogURL = result.info.url;
 
-      fetch(dogURL)
-        .then(function (response) {
-          return response.jpg //can i do this??
-        })
+      console.log(dogURL); //set image source to the dogURL
     }
   });
 
