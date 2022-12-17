@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const { Op } = require('sequelize');
-const checkAuth = require("../auth/authentication");
+// const checkAuth = require("../auth/authentication");
 
 // GET all dogs 
 router.get('/', async (req, res) => {
@@ -17,12 +17,12 @@ router.get('/', async (req, res) => {
 });
 
 // GET dogs based on specific search criteria
-router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', checkAuth, async (req, res) => {
+router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req, res) => {
     try {
         const dogData = await Dog.findAll({
             // owner_id: req.session.owner,
             where: { //need two different versions of this per Anthony? 
-                [Op.and]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
+                [Op.or]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
                     { dog_gender: req.params.one },
                     { dog_size: req.params.two},
                     { dog_age: req.params.three },
