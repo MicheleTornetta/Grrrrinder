@@ -1,9 +1,10 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { Dog, Owner } = require('../../models');
 const checkAuth = require('../auth/authentication');
 
 // GET owners
-router.get('/', async (req, res) => {
+router.get('/', checkAuth, async (req, res) => {
     try {
         const ownerData = await Owner.findAll({
             
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // CREATE owner account
-router.post('/', async (req, res) => {
+router.post('/', checkAuth, async (req, res) => {
     try {
         const ownerData = await Owner.create(req.body) /
 
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
 
 
 // DELETE owner account
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const ownerData = await Owner.destroy({
         where: {
