@@ -6,6 +6,7 @@ const checkAuth = require('../auth/authentication');
 // GET owners
 router.get('/', checkAuth, async (req, res) => {
     try {
+        // owner_id: req.session.owner,
         const ownerData = await Owner.findAll({
             
         });
@@ -20,7 +21,7 @@ router.get('/', checkAuth, async (req, res) => {
 router.post('/', checkAuth, async (req, res) => {
     try {
         const ownerData = await Owner.create(req.body) /
-
+        // owner_id: req.session.owner,
         res.status(200).json(ownerData);
 
     } catch (err) {
@@ -33,6 +34,7 @@ router.post('/', checkAuth, async (req, res) => {
 router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const ownerData = await Owner.destroy({
+            // owner_id: req.session.owner,
         where: {
             id: req.params.id,
         }
