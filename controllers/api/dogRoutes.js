@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const checkAuth = require("../auth/authentication");
 const { Op } = require('sequelize');
+// const checkAuth = require("../auth/authentication");
 
 // GET all dogs 
 router.get('/', async (req, res) => {
@@ -17,21 +18,21 @@ router.get('/', async (req, res) => {
 });
 
 // GET dogs based on specific search criteria
-router.get('/', checkAuth, async (req, res) => {
+router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req, res) => {
     try {
         const dogData = await Dog.findAll({
             // owner_id: req.session.owner,
             where: { //need two different versions of this per Anthony? 
-                [Op.or]: [ //is or correct here? 
-                    { dog_gender: req.params.dog_gender },
-                    { dog_size: req.params.dog_size },
-                    { dog_age: req.params.dog_age },
-                    { dog_vaccination: req.params.dog_vaccination },
-                    { dog_neuter_spayed: req.params.dog_neuter_spayed },
-                    { dog_temperment: req.params.dog_temperment },
-                    { preferred_days: req.params.preferred_days },
-                    { preferred_timeofday: req.params.preferred_timeofday },
-                    { preferred_location: req.params.preferred_location },
+                [Op.or]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
+                    { dog_gender: req.params.one },
+                    { dog_size: req.params.two},
+                    { dog_age: req.params.three },
+                    { dog_vaccinations: req.params.four },
+                    { dog_neuter_spayed: req.params.five },
+                    { dog_temperment: req.params.six },
+                    { preferred_days: req.params.seven },
+                    { preferred_timeofday: req.params.eight },
+                    { preferred_location: req.params.nine },
                 ]
             }
         })
@@ -65,7 +66,7 @@ router.post('/', async (req, res) => {
             preferred_days: req.body.dog,
             preferred_timeofday: req.body.dog,
             preferred_location: req.body.dog,
-        }); //unsure if I need to put all of the questions in here
+        }); 
 
         res.status(200).json(dogData);
 
