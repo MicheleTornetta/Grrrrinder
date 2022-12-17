@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const { Dog, Owner } = require('../../models');
 const { Op } = require('sequelize');
 const checkAuth = require("../auth/authentication");
 
 // GET all dogs 
-router.get('/', async (req, res) => {
+router.get('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.findAll({
 
@@ -18,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET dogs based on specific search criteria
-router.get('/', async (req, res) => {
+router.get('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.findAll({
             where: { //need two different versions of this per Anthony? 
@@ -47,7 +46,7 @@ router.get('/', async (req, res) => {
 });
 
 // CREATE new dog profile 
-router.post('/', async (req, res) => {
+router.post('/', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.create(req.body) //unsure if I need to put all of the questions in here
 
@@ -59,7 +58,7 @@ router.post('/', async (req, res) => {
 });
 
 // UPDTATE dog profile 
-router.put('/:id', async (req, res) => {
+router.put('/:id', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.update(req.body, {
 
@@ -77,7 +76,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE dog profile
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.destroy({
             where: {
