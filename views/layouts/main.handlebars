@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<head>
+<html>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -7,33 +7,53 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <script src="./assets/js/script.js" defer></script>
     <title class="title">Grrrr'inder</title>
-</head>
+  </head>
 
-<body>
-    <h1>Grrrr'inder</h1>
-    <h5> Welcome to Grrrrinder, your modern alternative to traditional dog parks! Here you can connect with fellow dog owners to set up doggy play dates. Grrrrinder provides a catered experience by allowing owners the ability to be more selective about the dogs their pet meets. Create a profile to get started today! </h5>
-    <nav> 
+  <body>
+    <header>
+      <h1>Grrrr'inder</h1>
+      <h5>
+        Welcome to Grrrrinder, your modern alternative to traditional dog parks!
+        Here you can connect with fellow dog owners to set up doggy play dates.
+        Grrrrinder provides a catered experience by allowing owners the ability
+        to be more selective about the dogs their pet meets. Create a profile to
+        get started today!
+      </h5>
+      <nav>
         <ul>
+          <li>
+            <a href="/"> Home </a>
+          </li>
+          {{#unless user}}
             <li>
-               <a href="/" > Home </a>
+              <a href="/login"> Login </a>
             </li>
+          {{/unless}}
+          {{#if user}}
             <li>
-               <a href="/login" > Login </a>
+              <a href="/logout"> Logout </a>
             </li>
-            <li>
-               <a href="/addadog" > Add a Dog </a>
-            </li>
-            <li>
-                <a href="/matchandmeet"> Match and Meet</a>
-            </li>
+          {{/if}}
+          <li>
+            <a href="/addadog"> Add a Dog </a>
+          </li>
+          <li>
+            <a href="/matchandmeet"> Match and Meet</a>
+
+          </li>
+
         </ul>
-    </nav>
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <div class="images">
+        <a href="https://link/" title="Pup photo">
+          <img src="assets/images/" alt="pup photo" />
+        </a>
 
- <div class="images">
-        <a href="https://link/" title="Pup photo"> <img src="assets/images/" alt="pup photo"> </a> 
-        
-    </div>
+      </div>
 
-  {{{body}}}
-</body>
+      {{{body}}}
+    </main>
+  </body>
 </html>
