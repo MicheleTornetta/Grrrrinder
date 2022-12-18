@@ -1,0 +1,86 @@
+
+<body>
+<h2>Create Your Dog's Profile!</h2>
+
+<p>Please fill out the following form.</p>
+
+<form action="/addadog">  {{! this link will create a dog once you hit submit but need to work on it--}}
+<p>What is your dog's name?</p>
+  <input type= "text" id="dog_name" name="dog_name"></input> <br><br>
+<p>What is your dog's breed?</p>
+  <input type= "text" id="dog_breed" name="dog_breed"></input> <br><br>
+  <label for="dog_gender">What is your dog's gender? :</label>
+  <select name="dog_gender" id="dog_gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <br><br>
+ <label for="dog_size">What is your dog's size? :</label>
+  <select name="dog_size" id="dog_size">
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+  <br><br>
+ <label for="dog_age">What is your dog's age? :</label>
+  <select name="dog_age" id="dog_age">
+    <option value="puppy">Puppy</option>
+    <option value="youth">Youth</option>
+    <option value="adult">Adult</option>
+    <option value="senior">Senior</option>
+  </select>
+  <br><br>
+ <label for="dog_vaccinations">Is your dog vaccinated? :</label>
+  <select name="dog_vaccinations" id="dog_vaccinations">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  <br><br>
+ <label for="dog_neuter_spayed">Is your dog neutered/spayed? :</label>
+  <select name="dog_neuter_spayed" id="dog_neuter_spayed">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  <br><br>
+ <label for="dog_temperment">What is your dog's temperment? :</label>
+  <select name="dog_temperment" id="dog_temperment">
+    <option value="shy">Shy</option>
+    <option value="calm">Calm</option>
+    <option value="energetic">Energetic</option>
+    <option value="outgoing">Outgoing</option>
+    <option value="outgoing">Leader</option>
+  </select>
+  <br><br>
+ <label for="preferred_days">What is your preferred day to meet? :</label>
+  <select name="preferred_days" id="preferred_days">
+    <option value="monday">Monday</option>
+    <option value="tuesday">Tuesday</option>
+    <option value="wednesday">Wednesday</option>
+    <option value="thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+    <option value="no_preference">No preference</option>
+  </select>
+  <br><br>
+ <label for="preferred_timeofday">What is your preferred time of day to meet? :</label>
+  <select name="preferred_timeofday" id="preferred_timeofday">
+    <option value="morning">Morning</option>
+    <option value="afternoon">Afternoon</option>
+    <option value="evening">Evening</option>
+    <option value="no_preference">No preference</option>
+  </select>
+  <p>Share some notes about your dog!</p>
+  <input type= "text" id="dog_notes" name="dog_notes"></input> <br><br>
+  <p>Upload a photo of your dog here: </p>
+{{!--  cloudinary widget --}}
+
+{{!--  { preferred_location: req.params.nine }, --}}
+
+  <br><br>
+  <button id="button">Submit</button>
+</form>
+
+<p>Click the "Submit" button to view your dog's matches!".</p>
+
+</body>
