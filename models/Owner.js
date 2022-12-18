@@ -58,10 +58,6 @@ Owner.init(
             newOwnerData.password = await bcrypt.hash(newOwnerData.password, 10);
             return newOwnerData;
           },
-          beforeUpdate: async (updatedOwnerData) => {
-            updatedOwnerData.password = await bcrypt.hash(updatedOwnerData.password, 10);
-            return updatedOwnerData;
-          },
         },
         sequelize,
         timestamps: false,

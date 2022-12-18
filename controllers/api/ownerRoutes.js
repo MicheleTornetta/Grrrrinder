@@ -25,9 +25,11 @@ router.get('/', checkAuth, async (req, res) => {
 });
 
 // CREATE user account
-router.post('/', checkAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newUser = req.body;
+        console.log(newUser);
+
         if (newUser.password?.length < 8) {
           res.status(400).json({err: "Password must be at least 8 characters."});
           return;
@@ -37,7 +39,7 @@ router.post('/', checkAuth, async (req, res) => {
     
         req.session.user = userData.id;
         req.session.lastSeen = Date.now();
-    
+
         res.status(200).json({
             name: userData.name,
             id: userData.id,
