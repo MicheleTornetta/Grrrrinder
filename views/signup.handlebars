@@ -1,10 +1,5 @@
-<div class="bold"></div>
-<div class="container">
-  <div class = 'window'>
-     <div class='content'>
-
-<div class="welcome"> Create Your Account Here! </div>
-<form class="form" id="fields">
+<h2> Create Your Account Here! </h2>
+<form class="form" id="form">
     <div>
     <label for="name">Your Name:</label>
     <input id="name" name="name" required/>
@@ -26,13 +21,8 @@
     <label for="password">Password:</label>
     <input id="password" type="password" name="password" required/>
   </div>
-  <button class="button" type="submit">SIGN UP</button>
-  {{!-- <input type="submit" value="Sign up"> --}}
+  <input class="button" type="submit" value="Sign up">
 </form>
-</div>
-</div>
-</div>
-
 
 <script defer>
   document.getElementById("form").onsubmit = function(e) {
