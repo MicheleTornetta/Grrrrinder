@@ -13,6 +13,7 @@
     "express-session": "^1.17.3",
     "inquirer": "^8.2.4",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.8.0",
     "sequelize": "^6.27.0"
   }
 }
