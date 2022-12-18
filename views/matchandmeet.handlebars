@@ -4,8 +4,7 @@
 
 <p>Please select your preferences from the following drop-down menus.</p>
 
-<form action="/api/dogs" method = "post" >  {{! this link will pull up the results once you hit submit but need to work on it--}}
-
+<form> 
 
   <label for="dog_gender">What is your preferred gender? :</label>
   <select name="dog_gender" id="dog_gender">
@@ -85,60 +84,8 @@
 
 </body>
 
-<script >
-    const button = document.querySelector ('#button')
-    const dog_gender = document.querySelector('dog_gender').value;
-    const dog_size = document.querySelector('dog_size').value;
-    const dog_age = document.querySelector('dog_age').value;
-    const dog_vaccinations = document.querySelector('dog_vaccinations').value;
-    const dog_neuter_spayed = document.querySelector('dog_neuter_spayed').value;
-    const dog_temperment = document.querySelector('dog_temperment').value;
-    const dog_vaccinations = document.querySelector('dog_vaccinations').value;
-    const preferred_days = document.querySelector('preferred_days').value;
-    const preferred_timeofday = document.querySelector('preferred_timeofday').value;
-    const preferred_location = document.querySelector('preferred_location').value;
-
-   button.onclick = (event) => {
-            event.preventDefault();
-            // how do I bring up the matches here??
-            // --> this was on W3 schools: alert(sb.value) or (sb.selectedIndex) sb = our const variables;; 
-            //selectedIndex – returns the zero-based index of the selected option. The selectedIndex is -1 if no option is selected. If the <select> element allows multiple selections, the selectedIndex returns the value of the first option.
-       
- 
- }
-
-
-{{#each dogs as |dog| }}
-{{ }}
-{{/each}}
-
-
-//route- /:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine'
-    </script>
+<script href = "/assets/client.js"></script>
  
 
 </html>
 
-
-
-
-
-{{!-- this should maybe have an if and each statement? --}}
-{{!-- {{#each dogs as |dog| }}
-{{!-- ???? --}}
-{{/each}} --}}
-
-
-{{!-- might need something like this because you shouldn't be able to see the page without logging in --}}
-{{!-- 
-{{#if loggedIn}}
-<section class="painting">
-  <img src="/images/{{painting.filename}}" alt="{{painting.description}}">
-  <div class="painting-details">
-    <h3>{{painting.title}}</h3>
-    <p>By: {{painting.artist}}</p>
-    <p>Exhibition open until: {{ format_date painting.exhibition_date}}</p>
-  </div>
-</section>
-{{else}}
-{{/if}} --}}
