@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const checkAuth = require("../auth/authentication");
 const { Op } = require('sequelize');
-// const checkAuth = require("../auth/authentication");
 
 // GET all dogs 
 router.get('/', async (req, res) => {
@@ -93,7 +92,7 @@ router.put('/:id', checkAuth, async (req, res) => {
 });
 
 // DELETE dog profile
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.destroy({
             where: {
