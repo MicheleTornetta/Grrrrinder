@@ -39,10 +39,11 @@ router.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-// router.get('/matchandmeet', function(req, res){
-//     res.render('matchandmeet');
-
-// });
+router.get('/matchandmeet', function(req, res){
+    res.render('matchandmeet', {
+        user: req.session.user
+    });
+});
 
 module.exports = router;
 router.get('/logout', function(req, res){
@@ -50,10 +51,5 @@ router.get('/logout', function(req, res){
     req.session.lastSeen  = undefined;
     res.redirect('/');
 });
-
-// router.get('/matchandmeet', function(req, res){
-//     res.render('matchandmeet');
-
-// });
 
 module.exports = router;
