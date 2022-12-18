@@ -5,7 +5,7 @@ router.get('/', function(req, res){
         res.render('login', {
             user: req.session.user
         });
-    }
+    } 
     else {
         res.render('home', {
             user: req.session.user
