@@ -1,15 +1,10 @@
 
-<h1>Grrrr'inder</h1>
-<h5>
-  Welcome to Grrrrinder, your modern alternative to traditional dog parks!
-  Here you can connect with fellow dog owners to set up doggy play dates.
-  Grrrrinder provides a catered experience by allowing owners the ability
-  to be more selective about the dogs their pet meets. Create a profile to
-  get started today!
-</h5>
+<div class="cont">
+  
 
-<h2>Login</h2>
-<form class="form" id="form" method="post">
+
+<div class="form" id="form" method="post">
+  <h2>Login</h2>
   <div>
     <label for="username">Username:</label>
     <input id="username" required name="username"/>
@@ -18,9 +13,45 @@
     <label for="password">Password:</label>
     <input id="password" type="password" required name="password"/>
   </div>
-  <input type="submit" value="Login">
-  <div><a href="/signup">Create New Account!</a></div>
-</form>
+  <div>
+    <button class="button" type="submit">SIGN IN</button>
+  </div>
+  {{!-- <input type="submit" value="Login"> --}}
+  {{!-- <div><a href="/signup">Create New Account!</a></div> --}}
+</div>
+</div>
+
+    <div class="bg-img inner-cont">
+  {{!-- <div class="img">  --}}
+    <div class="img-text">
+<h1>Grrrr'inder</h1>
+<p>
+  Welcome to Grrrrinder, your modern alternative to traditional dog parks!
+  Here you can connect with fellow dog owners to set up doggy play dates.
+  Grrrrinder provides a catered experience by allowing owners the ability
+  to be more selective about the dogs their pet meets. Create a profile to
+  get started today!
+</p>
+<div><a href="/signup">SIGN UP</a></div>
+</div>
+  </div>  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script defer>
   document.getElementById("form").onsubmit = function(e) {
     e.preventDefault();

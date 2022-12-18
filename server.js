@@ -9,7 +9,7 @@ const session = require('express-session')
 
 const hbs = exphbs.create({});
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 6001;
 
 const { Dog, Owner } = require('./models');
 app.engine('handlebars', hbs.engine);

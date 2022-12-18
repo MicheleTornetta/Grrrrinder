@@ -6,19 +6,131 @@
 }
 
 body {
-background-color: black;
+background-color: #ededed;
 }
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+fields {
+	margin-top: 25px;
+  }
+
+
+
+
+
+.cont {
+overflow: hidden;
+position: relative;
+height: 550px;
+/* width: $contW; */
+margin: 0 auto 100px;
+background: #fff;
+}
+
+.inner-cont {
+	overflow: hidden;
+	/* position: absolute; */
+	top: 0; 
+	height: 100%;
+	background: #fff;
+}
+
+/* .img {
+	overflow: hidden;
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding-top: 360px;
+	vertical-align: top;
+} */
+
+.img-text {
+		z-index: 2;
+		position: absolute;
+		left: 0;
+		top: 50px;
+		width: 100%;
+		padding: 0 20px;
+		text-align: center;
+		color: rgb(73, 46, 46);
+}
+	
+		h2 {
+		  margin-bottom: 10px;
+		  font-weight: normal;
+		}
+	
+		p {
+		  font-size: 14px;
+		  line-height: 1.5;
+		}
+
+
+h2 {
+	width: 100%;
+	font-size: 26px;
+	text-align: center;
+  }
+
 
 .form {
 	width: 320px;
-	padding: 30px;
-	padding-top: 156px;
+	/* width: $formW; */
+	height: 100%;
+	padding: 50px 30px 0;
+	/* padding-top: 156px; */
+
 }
 
-#username {
+button {
+	display: block;
+	margin: 15px auto;
+	/* width: $inputW;
+	height: $btnH; */
+	border-radius: 30px;
+	color: #fff;
+	font-size: 15px;
+	background-color:#d4af7a;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+  }
+  
+  .button:hover {
+	opacity: 1;
+  }	
+
+
+  /* .submit {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	background: #d4af7a;
+	text-transform: uppercase;
+  } */
+
+
+#username ,
+#name ,
+ #location , 
+ #email ,
+ #password
+ {
     border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
+	color:#8CA6DB;
 	padding: 10px;
 	padding-left: 24px;
 	font-weight: 700;
@@ -26,15 +138,117 @@ background-color: black;
 	transition: .2s;
 }
 
-#password {
-    border: none;
-	border-bottom: 2px solid #D1D1D4;
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: .2s;
-}
 
 
+.bg-img {
+	
+	background-image: url("./dogs.jpg");
+  
+	min-height: 380px;
+  
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* position: relative; */
+  }
+
+  .container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: #eee;
+	height: 100%;
+  }
+
+  .content {
+	padding-left: 25px;
+	padding-right: 25px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	z-index: 5;
+  }
+
+  .content {
+	padding-left: 25px;
+	padding-right: 25px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	z-index: 5;
+  }
+
+  .window {
+	z-index: 100;
+	color: #fff;
+	font-family: roboto;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	height: 560px;
+	width: 360px;
+	background: #fff;
+	background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
+  }
+
+
+.overlay {
+	background: -webkit-linear-gradient(#8CA6DB, #B993D6);
+	background: linear-gradient(#8CA6DB, #B993D6);
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	height: 560px;
+	position: absolute;
+	width: 360px;
+	z-index: 1;
+  }
+  
+  .bold-line {
+	background: #e7e7e7;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 100%;
+	height: 360px;
+	z-index: 1;
+	opacity:0.1;
+	  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') left no-repeat;
+	background-size:cover;
+  }
+  
+  /* @media (max-width: 500px) {
+	.window {
+	  width: 100%;
+	  height: 100%;
+	}
+	.overlay {
+	  width: 100%;
+	  height: 100%;
+	}
+  } */
