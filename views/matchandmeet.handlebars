@@ -74,8 +74,8 @@
     <option value="evening">Evening</option>
     <option value="no_preference">No preference</option>
   </select>
-
-{{!--  {  preferred_location: req.params.nine }, --}}
+<p>Please enter the zip code of your preferred location: </p>
+  <input type= "text" id="preferred_location" name="preferred_location"></input> <br><br>
 
   <br><br>
   <input class="button" type="submit" value="Submit">
@@ -96,6 +96,7 @@
     const dog_vaccinations = document.querySelector('dog_vaccinations').value;
     const preferred_days = document.querySelector('preferred_days').value;
     const preferred_timeofday = document.querySelector('preferred_timeofday').value;
+    const preferred_location = document.querySelector('preferred_location').value;
 
    button.onclick = (event) => {
             event.preventDefault();
