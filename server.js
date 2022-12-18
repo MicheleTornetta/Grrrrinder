@@ -27,33 +27,33 @@ sequelize.sync({ force: false }).then(() => {
 
 //User Login
 
-// app.set('trust proxy', 1) // trust first proxy
-// app.use(session({
-//   secret: 'v5SCD!=RQSTz_!&FgK-Qfi$^9jhot3%XGJiVE!$%3*94I-nPwdzcoAFC$TKs#j@s&__4DxZgZ8TNhTxiT0YCTudhlbQt*wTFH=SA9rU721(ll6C1yiuLHSr7RqINCI@H',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: false }
-// }));
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'v5SCD!=RQSTz_!&FgK-Qfi$^9jhot3%XGJiVE!$%3*94I-nPwdzcoAFC$TKs#j@s&__4DxZgZ8TNhTxiT0YCTudhlbQt*wTFH=SA9rU721(ll6C1yiuLHSr7RqINCI@H',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
-// //Logout User if not active after 10 min
+//Logout User if not active after 10 min
 
-// app.use('*', (req, res, next) => {
-//   if (req.session.owner) {
-//     const lastSeen = req.session.lastSeen;
-//     let diff = (Date.now() - lastSeen) / 1000;
+app.use('*', (req, res, next) => {
+  if (req.session.user) {
+    const lastSeen = req.session.lastSeen;
+    let diff = (Date.now() - lastSeen) / 1000;
 
-//     // If inactive for 5 min, reset their session
-//     if (diff > 10 * 60) {
-//       req.session.owner = undefined;
-//       req.session.lastSeen = undefined;
-//       res.redirect('/login');
-//     }
-//     else {
-//       req.session.lastSeen = Date.now();
-//       next();
-//     }
-//   }
-//   else {
-//     next();
-//   }
-// });
+    // If inactive for 10 min, reset their session
+    if (diff > 20 * 60) {
+      req.session.user = undefined;
+      req.session.lastSeen = undefined;
+      res.redirect('/login');
+    }
+    else {
+      req.session.lastSeen = Date.now();
+      next();
+    }
+  }
+  else {
+    next();
+  }
+});
