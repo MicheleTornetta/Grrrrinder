@@ -1,7 +1,6 @@
 const router = require ('express').Router();
 
 router.get('/', function(req, res){
-    console.log(req.session);
     if (!req.session || !req.session.user) {
         res.render('login', {
             user: req.session.user
@@ -34,6 +33,18 @@ router.get('/addadog', function(req, res){
     });
 });
 
+router.get('/logout', function(req, res){
+    req.session.user = undefined;
+    req.session.lastSeen  = undefined;
+    res.redirect('/');
+});
+
+// router.get('/matchandmeet', function(req, res){
+//     res.render('matchandmeet');
+
+// });
+
+module.exports = router;
 router.get('/logout', function(req, res){
     req.session.user = undefined;
     req.session.lastSeen  = undefined;
