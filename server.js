@@ -5,11 +5,12 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 const session = require('express-session')
+const mailer = require('nodemailer');
 
 
 const hbs = exphbs.create({});
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 6001;
 
 const { Dog, Owner } = require('./models');
 app.engine('handlebars', hbs.engine);

@@ -1,12 +1,11 @@
 const router = require ('express').Router();
 
 router.get('/', function(req, res){
-    console.log(req.session);
     if (!req.session || !req.session.user) {
         res.render('login', {
             user: req.session.user
         });
-    }
+    } 
     else {
         res.render('home', {
             user: req.session.user
@@ -40,9 +39,17 @@ router.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-// router.get('/matchandmeet', function(req, res){
-//     res.render('matchandmeet');
+router.get('/matchandmeet', function(req, res){
+    res.render('matchandmeet', {
+        user: req.session.user
+    });
+});
 
-// });
+module.exports = router;
+router.get('/logout', function(req, res){
+    req.session.user = undefined;
+    req.session.lastSeen  = undefined;
+    res.redirect('/');
+});
 
 module.exports = router;
