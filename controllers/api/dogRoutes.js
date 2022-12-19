@@ -59,26 +59,28 @@ router.get('/', async (req, res) => {
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
     try {
+        console.log(req.body)
         const dogData = await Dog.create({
             owner_id: req.session.owner,
-            dog_name: req.body.dog,
-            dog_breed: req.body.dog,
-            dog_gender: req.body.dog,
-            dog_size: req.body.dog,
-            dog_age: req.body.dog,
-            dog_vaccinations: req.body.dog,
-            dog_neuter_spayed: req.body.dog,
-            dog_temperment: req.body.dog,
-            dog_notes: req.body.dog,
-            dog_picture: req.body.dog,
-            preferred_days: req.body.dog,
-            preferred_timeofday: req.body.dog,
-            preferred_location: req.body.dog,
+            dog_name: req.body.dog_name,
+            dog_breed: req.body.dog_breed,
+            dog_gender: req.body.dog_gender,
+            dog_size: req.body.dog_size,
+            dog_age: req.body.dog_age,
+            dog_vaccinations: req.body.dog_vaccinations==="yes"?true:false,
+            dog_neuter_spayed: req.body.dog_neuter_spayed==="yes"?true:false,
+            dog_temperment: req.body.dog_temperment,
+            dog_notes: req.body.dog_notes,
+            dog_picture: req.body.dog_picture,
+            preferred_days: req.body.preferred_days==="yes"?true:false,
+            preferred_timeofday: req.body.preferred_timeofday,
+            preferred_location: req.body.preferred_location,
         }); 
 
         res.status(200).json(dogData);
 
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

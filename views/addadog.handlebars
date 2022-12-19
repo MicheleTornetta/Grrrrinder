@@ -4,7 +4,7 @@
 
 <p>Please fill out the following form.</p>
 
-<form action="/addadog">  {{! this link will create a dog once you hit submit but need to work on it--}}
+<form>  
 <p>What is your dog's name?</p>
   <input type= "text" id="dog_name" name="dog_name"></input> <br><br>
 <p>What is your dog's breed?</p>
@@ -70,17 +70,39 @@
     <option value="evening">Evening</option>
     <option value="no_preference">No preference</option>
   </select>
+  <p>Enter your zip code: </p>
+  <input type= "text" id="preferred_location" name="preferred_location"></input> <br><br>
   <p>Share some notes about your dog!</p>
   <input type= "text" id="dog_notes" name="dog_notes"></input> <br><br>
   <p>Upload a photo of your dog here: </p>
-{{!--  cloudinary widget --}}
+  <button id="upload_widget" class="cloudinary-button">Upload files</button>
 
-{{!--  { preferred_location: req.params.nine }, --}}
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dh82x6mau',
+    uploadPreset: 'c3wp7odl'
+  }, (error, result) => {
+    if (!error && result && result.event === "success") {
+      console.log('Done! Here is the image info: ', result.info);
+
+      var dogURL = result.info.url;
+
+      console.log(dogURL); //set image source to the dogURL
+    }
+  });
+
+  document.getElementById("upload_widget").addEventListener("click", function () {
+    myWidget.open();
+  }, false);
+</script>
+{{!--  cloudinary widget --}}
 
   <br><br>
   <button id="button">Submit</button>
 </form>
 
 <p>Click the "Submit" button to view your dog's matches!".</p>
-
+<script href = "/assets/client.js"></script>
 </body>
