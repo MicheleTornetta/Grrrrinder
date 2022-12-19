@@ -4,6 +4,14 @@
 	padding: 0;
 	font-family: Raleway, sans-serif;
 }
+li {
+	display: inline;
+	justify-content: space-between;
+  }
+
+nav {
+	background-color: #d4af7a;;
+}
 
 body {
 	background-color: #fff;
@@ -14,11 +22,18 @@ body {
 }
 
 input {
+<<<<<<< HEAD
 	outline: none;
 	display: block;
 	margin-top: 15px;
 	font-size: 15px;
 	text-align: center;
+=======
+  border: 3px;
+  outline: 3px;
+  background: rgb(152, 209, 169);
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+>>>>>>> 05c4fbc6c2b48e9d168f6b2613180775dcaec46b
 }
 
 
