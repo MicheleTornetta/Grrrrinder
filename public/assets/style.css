@@ -22,14 +22,19 @@ body {
 }
 
 input {
+
+	outline: none;
+
 	display: block;
 	margin-top: 15px;
 	font-size: 15px;
 	text-align: center;
+
   border: 3px;
   outline: 3px;
   background: rgb(152, 209, 169);
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
 }
 
 
