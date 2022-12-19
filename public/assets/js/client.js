@@ -26,7 +26,7 @@ function requireText() {
             'Content-Type': 'application/json'
         }
     })
-document.location.replace('/') //wherever you need to get to next
+document.location.replace('/profile') //wherever you need to get to next
 
 })
 //need to create another page showing the profile  
