@@ -181,19 +181,6 @@ h2 {
 	z-index: 5;
   }
 
-  .content {
-	padding-left: 25px;
-	padding-right: 25px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-flow: column;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	z-index: 5;
-  }
-
   .window {
 	z-index: 100;
 	color: #fff;

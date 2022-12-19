@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const checkAuth = require("../auth/authentication");
 const { Op } = require('sequelize');
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 // GET all dogs & GET dogs based on specific search criteria
 router.get('/', async (req, res) => {
@@ -117,6 +119,42 @@ router.delete('/:id', checkAuth, async (req, res) => {
         }
         res.status(200).json(dogData);
     } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//post request for email contact
+router.post('/contact', checkAuth, async (req, res) => {
+    try {
+        const owner = await Owner.findByPk(req.session.user)
+        const dogOwner = await Owner.findByPk(req.body.owner)
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: process.env.EMAIL_ADDRESS,
+              pass: process.env.EMAIL_PASSWORD,
+            }
+          });
+
+          const mailOptions = {
+            from: 'grrrrinderdogmeetup@gmail.com',
+            to: dogOwner.email,
+            subject: 'My dog wants to meet your dog',
+            text: 'If your dog is interested, please email me at ' + dogOwner.email + '. Thanks, ' + dogOwner.name + '.' 
+        
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+    }
+    catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
