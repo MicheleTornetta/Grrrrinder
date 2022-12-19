@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Dog, Owner } = require('../../models');
 const checkAuth = require("../auth/authentication");
 const { Op } = require('sequelize');
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 // GET all dogs & GET dogs based on specific search criteria
 router.get('/', async (req, res) => {
@@ -28,33 +30,33 @@ router.get('/', async (req, res) => {
 });
 
 // // GET dogs based on specific search criteria
-// router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req, res) => {
-//     try {
-//         const dogData = await Dog.findAll({
-//             where: { //need two different versions of this per Anthony? 
-//                 [Op.or]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
-//                     { dog_gender: req.params.one },
-//                     { dog_size: req.params.two},
-//                     { dog_age: req.params.three },
-//                     { dog_vaccinations: req.params.four },
-//                     { dog_neuter_spayed: req.params.five },
-//                     { dog_temperment: req.params.six },
-//                     { preferred_days: req.params.seven },
-//                     { preferred_timeofday: req.params.eight },
-//                     { preferred_location: req.params.nine },
-//                 ]
-//             }
-//         })
+router.get('/:one/:two:/:three/:four/:five/:six/:seven/:eight/:nine', async (req, res) => {
+    try {
+        const dogData = await Dog.findAll({
+            where: { //need two different versions of this per Anthony? 
+                [Op.or]: [ //and is not working here but we had it working with an or at one point but now that isn't working either :()
+                    { dog_gender: req.params.one },
+                    { dog_size: req.params.two},
+                    { dog_age: req.params.three },
+                    { dog_vaccinations: req.params.four },
+                    { dog_neuter_spayed: req.params.five },
+                    { dog_temperment: req.params.six },
+                    { preferred_days: req.params.seven },
+                    { preferred_timeofday: req.params.eight },
+                    { preferred_location: req.params.nine },
+                ]
+            }
+        })
 
-//         if (!dogData) {
-//             res.status(404).json({ message: "No dogs found meeting that search criteria" });
-//             return;
-//         }
-//         res.status(200).json(dogData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        if (!dogData) {
+            res.status(404).json({ message: "No dogs found meeting that search criteria" });
+            return;
+        }
+        res.status(200).json(dogData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
@@ -119,6 +121,42 @@ router.delete('/:id', checkAuth, async (req, res) => {
         }
         res.status(200).json(dogData);
     } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//post request for email contact
+router.post('/contact', checkAuth, async (req, res) => {
+    try {
+        const owner = await Owner.findByPk(req.session.user)
+        const dogOwner = await Owner.findByPk(req.body.owner)
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: process.env.EMAIL_ADDRESS,
+              pass: process.env.EMAIL_PASSWORD,
+            }
+          });
+
+          const mailOptions = {
+            from: 'grrrrinderdogmeetup@gmail.com',
+            to: dogOwner.email,
+            subject: 'My dog wants to meet your dog',
+            text: 'If your dog is interested, please email me at ' + dogOwner.email + '. Thanks, ' + dogOwner.name + '.' 
+        
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+    }
+    catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
