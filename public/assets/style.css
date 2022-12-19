@@ -10,9 +10,9 @@ background-color: #ededed;
 }
 
 input {
-  border: none;
-  outline: none;
-  background: none;
+  border: 3px;
+  outline: 3px;
+  background: rgb(152, 209, 169);
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
