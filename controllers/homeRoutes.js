@@ -6,11 +6,14 @@ router.get('/', function(req, res){
             user: req.session.user
         });
     } 
-    else {
-        res.render('home', {
+});
+
+router.get('/profile', function(req, res){
+    if (!req.session || !req.session.user) {
+        res.render('profile', {
             user: req.session.user
         });
-    }
+    } 
 });
 
 router.get('/signup', function(req, res){
