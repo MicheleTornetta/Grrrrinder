@@ -11,9 +11,12 @@
 
   <body>
     <header>
+<div class="menu">
+{{!-- <img src="../assets/logo.png" alt="Grinder logo" /> --}}
 
       <nav>
-        <ul>
+        <button class="menubtn">Menu</button>
+        <ul class="dropdown">
           <li>
             <a href="/"> Home </a>
           </li>
@@ -37,14 +40,15 @@
 
         </ul>
       </nav>
+      </div>
     </header>
-    <main class="container container-fluid mt-5">
-      <div class="images">
+    <main class="container>
+      {{!-- <div class="images">
         <a href="https://link/" title="Pup photo">
           <img src="assets/images/" alt="pup photo" />
         </a>
 
-      </div>
+      </div> --}}
 
       {{{body}}}
     </main>
