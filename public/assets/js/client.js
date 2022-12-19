@@ -1,4 +1,10 @@
-$("form").on("submit", async function(event){
+
+
+function requireText() {
+    document.getElementById("text").required = true;
+    document.getElementById("demo").innerHTML = "Please fill in the blank text feilds.";}
+
+    $("form").on("submit", async function(event){
     event.preventDefault();
     //if its input you put input, if its select put select, if its text text..
     const dog_name = document.querySelector('input[name = "dog_name"]').value;
