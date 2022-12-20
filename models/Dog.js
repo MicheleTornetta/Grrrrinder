@@ -59,7 +59,7 @@ Dog.init(
        //dog_notes:
        dog_notes: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true, //changed this to 'true' to make this section optional
        },
     //    dog_picture:
           dog_picture: {
