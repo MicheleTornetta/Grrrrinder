@@ -29,6 +29,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
     try {
