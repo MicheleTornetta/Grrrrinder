@@ -36,9 +36,15 @@ router.post('/', async (req, res) => {
         }
         // create the newuser with the hashed password and save to DB
         const userData = await Owner.create(newUser);
+
+        req.session.save(() => {
+          req.session.userId = userData.id;
+          req.session.username = userData.username;
+          req.session.loggedIn = true;
     
-        req.session.user = userData.id;
-        req.session.lastSeen = Date.now();
+          res.json(userData);
+        });
+    
 
         res.status(200).json({
             name: userData.name,
@@ -79,9 +85,15 @@ router.post('/login', async (req, res) => {
   
       if (userData) {
         if (await bcrypt.compare(user.password, userData.password)) {
-          req.session.user = userData.id;
-          req.session.lastSeen = Date.now();
-  
+
+          req.session.save(() => {
+            req.session.userId = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+      
+            res.json(userData);
+          });
+
           res.status(200).json({
             username: userData.username,
             email: userData.email,

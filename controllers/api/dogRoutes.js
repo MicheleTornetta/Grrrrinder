@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
 
 
 // CREATE new dog profile 
-router.post('/', checkAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         console.log(req.body)
         const dogData = await Dog.create({

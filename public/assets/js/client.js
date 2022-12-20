@@ -8,7 +8,7 @@ function requireText() {
     // $("form").on("submit", async function(event){
     document.getElementById("add_button").addEventListener("click", async function(event){
 
-   
+   console.log(dogURL);
     event.preventDefault();
     console.log("hello")
     // if its input you put input, if its select put select, if its text text..
@@ -20,7 +20,8 @@ function requireText() {
     const dog_vaccinations = document.querySelector('select[name= "dog_vaccinations"]').value;
     const dog_neuter_spayed = document.querySelector('select[name= "dog_neuter_spayed"]').value;
     const dog_temperment = document.querySelector('select[name= "dog_temperment"]').value;
-    const dog_notes = document.querySelector('select[name= "dog_notes"]').value;
+    const dog_notes = document.querySelector('input[name= "dog_notes"]').value;
+    const dog_picture = dogURL
     const preferred_days = document.querySelector('select[name= "preferred_days"]').value;
     const preferred_timeofday = document.querySelector('select[name= "preferred_timeofday"]').value;
     const preferred_location = document.querySelector('input[name= "preferred_location"]').value;
@@ -39,13 +40,15 @@ function requireText() {
     await fetch('/api/dogs', {
         method: "POST",
         body: JSON.stringify({
-            dog_name, dog_breed, dog_gender, dog_size, dog_age, dog_vaccinations, dog_neuter_spayed,dog_temperment, dog_notes, preferred_days, preferred_timeofday, preferred_location,
+            dog_name, dog_breed, dog_gender, dog_size, dog_age, dog_vaccinations, dog_neuter_spayed, dog_temperment, dog_notes, dog_picture, preferred_days, preferred_timeofday, preferred_location,
         }), 
         headers: {
             'Content-Type': 'application/json'
         }
-    })
-// document.location.replace('/profile') //wherever you need to get to next
+    })  
+        .then(() => {
+            document.location.replace('/profile')
+        })
 
 })
 // //need to create another page showing the profile  
