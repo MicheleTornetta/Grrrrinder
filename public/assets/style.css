@@ -118,6 +118,23 @@ p {
 	opacity: 0.9;
 }
 
+#add_button {
+
+		display: block;
+		margin: 27px auto;
+		border-radius: 30px;
+		color: #fff;
+		font-size: 15px;
+		background-color: #d4af7a;
+		color: white;
+		padding: 16px 20px;
+		border: none;
+		cursor: pointer;
+		width: 50%;
+		opacity: 0.9;
+
+}
+
 .button2 {
 	display: block;
 	margin: 27px auto;
@@ -180,6 +197,41 @@ p {
 
 	display: flex;
 	align-items: center;
+	-webkit-box-pack: center;
+	
+	justify-content: center;
+	background: #eee;
+	height: 100%;
+  }
+
+  .content {
+	padding-left: 25px;
+	padding-right: 25px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	z-index: 5;
+  }
+
+  .window {
+	z-index: 100;
+	color: #fff;
+	font-family: roboto;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	-ms-flex-flow: column;
+	flex-flow: column;
+	box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	height: 560px;
+	width: 360px;
     justify-content: center;
 	background: #fff;
 	height: 100%;

@@ -1,3 +1,6 @@
+const checkAuth = require('./auth/authentication');
+const { Dog } = require('../models')
+
 const router = require ('express').Router();
 
 router.get('/', function(req, res){
@@ -8,12 +11,23 @@ router.get('/', function(req, res){
     } 
 });
 
-router.get('/profile', function(req, res){
-    if (!req.session || !req.session.user) {
-        res.render('profile', {
-            user: req.session.user
+router.get('/profile', async function(req, res){
+    try {
+        console.log(req.session);
+        const dogData = await Dog.findAll({
+          where: {
+            owner_id: req.session.userId,
+          },
         });
-    } 
+    
+        console.log(dogData)
+        const dogs = dogData.map((dog) => dog.get({ plain: true }));
+
+        res.render('profile', {
+          dogs,
+        });
+      } catch (err) {
+      }    
 });
 
 router.get('/signup', function(req, res){

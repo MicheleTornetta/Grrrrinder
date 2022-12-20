@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 
+
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
     try {
@@ -97,7 +98,7 @@ router.delete('/:id', checkAuth, async (req, res) => {
     }
 });
 
-//post request for email contact
+//post request for email contact - which will be attached to the matchandmeet page
 router.post('/contact', checkAuth, async (req, res) => {
     try {
         const owner = await Owner.findByPk(req.session.user)
