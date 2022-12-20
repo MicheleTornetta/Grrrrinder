@@ -14,9 +14,11 @@ router.get('/', function(req, res){
 router.get('/profile', async function(req, res){
     try {
         console.log(req.session);
+        console.log(req.session.userId);
         const dogData = await Dog.findAll({
           where: {
             owner_id: req.session.userId,
+        // ^^^there is a mismatch between the owner_id and the userId which was preventing the rendering of the dog profiles to the profile page 
           },
         });
     
@@ -29,6 +31,28 @@ router.get('/profile', async function(req, res){
       } catch (err) {
       }    
 });
+
+router.get('/matchresults', async function(req, res){
+    try {
+        console.log(req.session);
+        console.log(req.session.userId);
+        const dogData = await Dog.findAll({
+        //   where: {
+            // owner_id: req.session.userId,
+        // ^^^there is a mismatch between the owner_id and the userId which was preventing the rendering of the dog profiles to the profile page 
+        //   },
+        });
+    
+        console.log(dogData)
+        const dogs = dogData.map((dog) => dog.get({ plain: true }));
+
+        res.render('matchresults', {
+          dogs,
+        });
+      } catch (err) {
+      }    
+});
+
 
 router.get('/signup', function(req, res){
     res.render('signup', {

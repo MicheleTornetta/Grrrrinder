@@ -1,10 +1,5 @@
 
 
-function requireText() {
-    document.getElementById("text").required = true;
-    document.getElementById("demo").innerHTML = "Please fill in the blank text feilds.";
-}
-
     // $("form").on("submit", async function(event){
     document.getElementById("add_button").addEventListener("click", async function(event){
 
