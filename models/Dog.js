@@ -81,7 +81,7 @@ Dog.init(
     // TAKEN FROM THE 'MEETUP' MODEL   
     //preferred_days:
     preferred_days: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         // type: DataTypes.DATE,
         allowNull: false,
         // validate: {
