@@ -76,10 +76,17 @@ router.get('/matchresults', async (req, res) => {
         const queryFields = ["dog_gender", "dog_size", "dog_age", "dog_vaccinations", "dog_neuter_spayed","dog_temperment", "preferred_days", "preferred_timeofday", "preferred_location"] //if we only want to search for 'all dogs' we would just leave this array empty.
         const query = {}
         queryFields.forEach ((queryField)=>{
-            if (req.query[queryField] && req.query[queryField] !== 'no_preference'){
+            if (req.query[queryField] && req.query[queryField] !== 'no_preference') {
+                if (req.query[queryField] === 'yes') {
+                    req.query[queryField] = true;
+                }
+                if (req.query[queryField] === 'no') {
+                    req.query[queryField] = false;
+                }
+
                 query[queryField] = { [Op.eq]: req.query[queryField] }
             }
-        })
+        });
 
         if (req.session.user) {
             query['owner_id'] = {

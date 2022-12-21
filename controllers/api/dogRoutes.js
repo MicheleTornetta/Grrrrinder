@@ -89,16 +89,20 @@ router.post('/contact', checkAuth, async (req, res) => {
             from: 'grrrrinderdogmeetup@gmail.com',
             to: dogOwner.email,
             subject: 'My dog wants to meet your dog',
-            text: 'If your dog is interested, please email me at ' + dogOwner.email + '. Thanks, ' + dogOwner.name + '.' 
-        
+            text: 'If your dog is interested, please email me at ' + owner.email + '. Thanks, ' + owner.name + '.'
           };
           
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
               console.log(error);
+              res.status(500).json(error);
             } else {
               console.log('Email sent: ' + info.response);
             }
+          });
+
+          res.json({
+            status: 'success'
           });
     }
     catch (err) {
