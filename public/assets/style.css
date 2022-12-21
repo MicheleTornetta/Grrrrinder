@@ -274,7 +274,7 @@ p {
 	background-image: '/.logo.png';
 	display: grid;
 	grid-template-areas: "left right";
-	max-width: 900px;
+	max-width: 80;
 }
 
 /* Add a dog page left inner-container */
