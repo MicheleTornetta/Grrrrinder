@@ -54,7 +54,7 @@ input:hover {
 	box-shadow: 4px 4px 60px 8px rgba(50, 49, 49, 0.2);
 }
 
-/* login page container styles */
+/* main page container styles */
 .cont {
 	height: 80%;
 	overflow: hidden;
@@ -236,7 +236,7 @@ p {
 	background: url('https://placedog.net/800/640?id=1') center no-repeat;
 	background-size: cover;
 
-	opacity: 0.5;
+	opacity: 0.8;
 	color: #141820;
 	font-size: 20px;
 	font-family: 'Raleway', sans-serif;
@@ -490,8 +490,6 @@ span {
 .cardCont {
 	display: flex;
 	flex-wrap: wrap;
-
-
 	justify-content: left;
 	align-items: center;
 	gap: 20px;
