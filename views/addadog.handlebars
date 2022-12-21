@@ -4,7 +4,7 @@
 
 <p>Please fill out the following form.</p>
 
-<form>  
+<form id="addadog">  
 <p>What is your dog's name?</p>
   <input type= "text" id="dog_name" name="dog_name"></input> <br><br>
 <p>What is your dog's breed?</p>
@@ -73,7 +73,8 @@
   <p>Enter your zip code: </p>
   <input type= "text" id="preferred_location" name="preferred_location"></input> <br><br>
   <p>Share some notes about your dog!</p>
-  <input type= "text" id="dog_notes" name="dog_notes"></input> <br><br>
+  {{!-- <input type= "text" id="dog_notes" name="dog_notes"></input> <br><br> --}}
+  <textarea name="dog_notes" id="dog_notes" cols="30" rows="10" placeholder="Type something interesting!"></textarea>
   <p>Upload a photo of your dog here: </p>
   <button id="upload_widget" class="cloudinary-button">Upload files</button>
 
@@ -90,8 +91,6 @@
       console.log('Done! Here is the image info: ', result.info);
 
       dogURL = result.info.url;
-
-      console.log(dogURL); //set image source to the dogURL
     }
   });
 
@@ -103,11 +102,11 @@
 {{!--  cloudinary widget --}}
 
   <br><br>
-  <button id="add_button">Submit</button>
+  <input type="submit" id="add_button" />
 </form>
 
 <p>Click the "Submit" button to view your dog's profile!".</p>
 
- <script src="./assets/js/client.js" ></script>
+ <script src="/assets/js/script.js" ></script>
 
 </body>

@@ -1,0 +1,58 @@
+<h1>Your Match Results</h1>
+
+{{#if nodogs}}
+<p>No dogs were found that met your criteria :(</p>
+<p><a href="/matchandmeet">Try again?</a></p>
+{{/if}}
+
+{{#each dogs}}
+
+<div class="dog-card">
+    <h2>{{dog_name}}</h2>
+    <img src={{dog_picture}} alt="Dog">
+    <h3>A bit about {{dog_name}}</h3>
+    <ul class="actual-ul">
+        <li>{{dog_name}} is a {{dog_gender}} {{dog_breed}}.</li>
+        <li>My {{dog_age}} is {{dog_size}}.</li>
+        <li>A word that best decribes my dog is: "{{dog_temperment}}".</li>
+    </ul>
+    <h4>Health Status</h4>
+    <ul class="actual-ul">
+        <li>Vaccinated: {{dog_vaccinations}}</li>
+        <li>Neutered/Spayed: {{dog_neuter_spayed}}</li>
+    </ul>
+
+    <h4>When to meet</h4>
+    <ul class="actual-ul">
+        <li>I would prefer to meet on {{preferred_days}} in the {{preferred_timeofday}}. My ZIP code is {{preferred_location}}.</li>
+    </ul>
+    
+    <h4>A little more about my dog: </h4>
+    <p>{{dog_notes}}</p>
+
+    <button onclick="email({{owner_id}})">Send a contact request</button>
+</div>
+
+{{/each}}
+
+<script>
+    async function email(id) {
+        const result = await fetch('/api/dogs/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                owner: id
+            })
+        });
+
+        if (result.status !== 200) {
+            const error = await result.json();
+            alert(error.err ?? 'There was an error sending the request.');
+        }
+        else {
+            alert('Contact Request Sent!');
+        }
+    }
+</script>
