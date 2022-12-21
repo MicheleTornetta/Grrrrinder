@@ -1,27 +1,31 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Raleway, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Raleway, sans-serif;
 }
+
 li {
-  display: inline;
-  justify-content: space-between;
+	display: inline;
+	justify-content: space-between;
 }
 
 nav {
-  background-color: #d4af7a;
+	background-color: #d4af7a;
 }
 
 body {
-  background-color: #fff;
-  display: flex;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 
 a {
 	color: rgb(112, 25, 25);
-  }
+}
 
 
 
@@ -29,62 +33,77 @@ main {
 	padding: 0 20%;
 }
 
-
+/* input fields styling */
 input {
-  outline: none;
+	outline: none;
 
-  display: block;
-  margin-top: 15px;
-  font-size: 15px;
-  text-align: center;
+	display: block;
+	margin-top: 15px;
+	font-size: 15px;
+	text-align: center;
 
-  border: 3px;
-  outline: 3px;
-  background: rgb(152, 209, 169);
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	border: 3px;
+	outline: 3px;
+	background: rgb(152, 209, 169);
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+/* input hover styles */
+input:hover {
+	background: rgba(32, 30, 30, 0.1);
+	box-shadow: 4px 4px 60px 8px rgba(50, 49, 49, 0.2);
+}
+
+/* login page container styles */
 .cont {
-  height: 80%;
-  overflow: hidden;
-  margin: 0 30%;
-  width: 100%;
-  background: #fff;
-  display: flex;
+	height: 80%;
+	overflow: hidden;
+	position: relative;
+	margin: 0 30%;
+	width: 100%;
+	background: #fff;
+	display: flex;
+	margin-top: 73px;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px #d4af7a;
 }
 
+/* form styles */
 .form {
-  width: 97%;
-  height: 69%;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 30px 0;
+	width: 97%;
+	/* height: 69%; */
+	display: flex;
+	flex-direction: column;
+	padding: 50px 30px 0;
 }
 
+/* login page inner container */
 .inner-cont {
-  overflow: hidden;
-  top: 0;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
+	overflow: hidden;
+	top: 0;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
 }
 
+/* overlay text image on login page */
 .img-text {
-  z-index: 2;
-  left: 0;
-  top: 50px;
-  width: 100%;
-  padding: 5% 2px;
-  text-align: center;
-  color: #fff;
+	z-index: 2;
+	left: 0;
+	top: 50px;
+	width: 100%;
+	padding: 21% 2px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
 }
 
 h1 {
-  margin-top: 4%;
+	margin-top: 4%;
 }
 
 h2 {
-
+	color: #d4af7a;
 	margin-top: 91px;
 	margin-bottom: 17px;
 	font-weight: bold;
@@ -97,210 +116,280 @@ h2 {
 }
 
 p {
-  font-size: 14px;
-  line-height: 1.5;
+	font-size: 14px;
+	line-height: 2.5em;
 }
 
+/* button styles */
 .button {
-  display: block;
-  margin: 27px auto;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 15px;
-  background-color: #d4af7a;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
+	display: block;
+	margin: 27px auto;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 15px;
+	background-color: #d4af7a;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	opacity: 0.9;
 }
 
 #add_button {
-  display: block;
-  margin: 27px auto;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 15px;
-  background-color: #d4af7a;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
+	display: block;
+	margin: 27px auto;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 15px;
+	background-color: #d4af7a;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	opacity: 0.9;
+}
+
+.add_button,
+.dog-card button {
+	display: block;
+	margin: 27px auto;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 15px;
+	background-color: #d4af7a;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	opacity: 0.9;
 }
 
 .button2 {
-  display: block;
-  margin: 27px auto;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 15px;
-  background-color: rgba(212, 175, 122, 0.5);
-  color: white;
-  padding: 16px 20px;
-  cursor: pointer;
-  width: 50%;
-  border: 2px solid white;
+	display: block;
+	margin: 27px auto;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 15px;
+	background-color: rgba(212, 175, 122, 0.5);
+	color: white;
+	padding: 16px 20px;
+	cursor: pointer;
+	width: 50%;
+	border: 2px solid white;
 }
 
+/* login page sign-up button */
 .button2 a {
 	color: white;
+
 }
 
 .button:hover {
-	background-color: rgba(212, 175, 122, 1);
-	color: white;
+	opacity: 1;
+	color: #8ca6db;
 }
 
 .button2:hover {
-  background-color: #d4af7a;
-  color: white;
+	background-color: #d4af7a;
+	color: white;
 }
 
-/* .submit {
-	margin-top: 40px;
-	margin-bottom: 20px;
-	background: #d4af7a;
-	text-transform: uppercase;
-  } */
 
 #username,
 #name,
 #location,
 #email,
 #password {
-  border: none;
-  border-bottom: 2px solid #d1d1d4;
-  background: none;
-  color: #8ca6db;
-  padding: 25px;
-  padding-left: 24px;
-  width: 100%;
-  transition: 0.2s;
+	border: none;
+	border-bottom: 2px solid #d1d1d4;
+	background: none;
+	color: #8ca6db;
+	padding: 25px;
+	padding-left: 24px;
+	width: 100%;
+	transition: 0.2s;
 }
 
+/* login page background image */
 .bg-img {
-  background-image: url("https://placedog.net/800/640?id=2");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.8;
+	background-image: url("https://placedog.net/800/640?id=2");
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.8;
 }
 
+/* login page container */
 .container {
-  display: flex;
-  background: #eee;
+	display: flex;
+	background: #fff;
+	align-items: center;
+	height: 100%;
+	width: 100%;
 }
 
-.content {
-  padding-left: 25px;
-  padding-right: 25px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  z-index: 5;
+/* sign-up styling background */
+.registration {
+	background: url('https://placedog.net/800/640?id=1') center no-repeat;
+	background-size: cover;
+
+	opacity: 0.5;
+	color: #141820;
+	font-size: 20px;
+	font-family: 'Raleway', sans-serif;
 }
 
-.window {
-  z-index: 100;
-  color: #fff;
-  font-family: roboto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  height: 560px;
-  width: 360px;
-  justify-content: center;
-  background: #fff;
-  height: 100%;
+/* sign-up styling form */
+.signupCont {
+	background-color: #fff;
+	opacity: 2.8;
+	border-radius: 2.5em;
+	box-shadow: 0 0 5em 0 #d4af7a;
+	display: flex;
+
+	overflow: hidden;
+
+	align-items: center;
+	flex-flow: nowrap;
+	transform: translate(-45%, -50%);
+	padding: 1em;
+	position: absolute;
+	top: 46%;
+	left: 50%;
 }
 
-.content {
-  padding-left: 25px;
-  padding-right: 25px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  z-index: 5;
+/* sign-up styling input form */
+.signupCont input {
+	padding: 10px 15px;
+	background-color: #8ca6db;
+	border: #141820;
+	cursor: pointer;
 }
 
-.window {
-  z-index: 100;
-  color: #fff;
-  font-family: roboto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  height: 560px;
-  width: 360px;
-  background: #fff;
-  background: url("https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823")
-    top left no-repeat;
+/* Add a dog page container */
+.dogCont {
+	background-image: '/.logo.png';
+	display: grid;
+	grid-template-areas: "left right";
+	max-width: 900px;
 }
 
-/* @media (max-width: 500px) {
-	.window {
-	  width: 100%;
-	  height: 100%;
-	}
-	.overlay {
-	  width: 100%;
-	  height: 100%;
-	}
-  } */
+/* Add a dog page left inner-container */
+#addadog1 {
+
+	background-color: #8ca6db95;
+	border-radius: 2.5em;
+	width: 100%;
+	padding: 50px 50px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Add a dog page right inner-container */
+#addadog2 {
+
+	background-color: #d4ae7a6d;
+	border-radius: 2.5em;
+	width: 100%;
+	padding: 50px 50px;
+
+}
+
+/* Add a dog page inner-container input fields */
+#addadog1 input,
+#addadog2 input {
+	border: 1px solid #d4af7a;
+	background: #fff;
+	border-radius: 4px;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+#addadog2 textarea {
+	border: 1px solid #d4af7a;
+	background: #fff;
+	border-radius: 4px;
+}
+
+/* match and meet page container */
+.matchcontainer {
+	background-image: '/.logo.png';
+	display: grid;
+	grid-template-areas: "left right";
+	max-width: 900px;
+}
+
+/* match and meet page left inner-container */
+.matchcontainer1 {
+
+	background-color: #d4ae7a6d;
+	border-radius: 2.5em;
+	width: 100%;
+	padding: 50px 50px;
+}
+
+
+/* match and meet page right inner-container */
+.matchcontainer2 {
+
+	background-color: #8ca6db95;
+	border-radius: 2.5em;
+	width: 100%;
+	padding: 50px 50px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* match and meet page right inner-container input */
+.matchcontainer2 input {
+	border: 1px solid #d4af7a;
+	background: #fff;
+	border-radius: 4px;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+
 
 /* menu styling */
 :root {
-  --Color1: #d4af7a;
-  --Color2: white;
+	--Color1: #d4af7a;
+	--Color2: white;
 }
 
 .actual-ul li {
 	display: block;
 	margin: 0 20px;
-	padding:2px 0;
+	padding: 2px 0;
 }
 
 ul {
-  flex-direction: column;
-  align-items: center;
-  list-style-type: none;
+	flex-direction: column;
+	align-items: center;
+	list-style-type: none;
 }
 
 ul li {
-  padding: 10px 0;
+	padding: 10px 0;
 }
 
 ul li a {
-  position: relative;
-  display: block;
-  padding: 4px 0;
-  color: #d4af7a;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.7s;
+	position: relative;
+	display: block;
+	padding: 4px 0;
+	color: #d4af7a;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
 }
 
 .dog-card {
@@ -313,56 +402,104 @@ h1 {
 	text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6, p, li, span {
-	line-height: 1.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span {
+	line-height: 2.4em;
 }
 
 .menu {
-  position: absolute;
-  display: block;
-  float: left;
-  left: 0%;
+	position: absolute;
+	display: block;
+	float: left;
+	left: 0%;
 }
 
 .menubtn {
-  background-color: #d4af7a;
-  color: white;
-  padding: 20px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
+	background-color: #d4af7a;
+	color: white;
+	padding: 20px;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
 }
 
 .dropdown {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px #d4af7a;
-  z-index: 1;
-  left: 0;
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	min-width: 200px;
+	box-shadow: 0px 8px 16px 0px #d4af7a;
+	z-index: 1;
+	left: 0;
 }
 
 .dropdown li a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
 }
 
 .dropdown li a:hover {
-  background-color: #d4af7a;
+	background-color: #d4af7a;
 }
 
 .menu:hover .dropdown {
-  display: block;
+	display: block;
 }
 
 .menu:hover .menubtn {
-  background-color: black;
+	background-color: black;
 }
 
 .container img {
 	width: 250px;
 	height: auto;
+}
+
+/* dog card styles */
+
+.dog-card {
+	background-color: #141820;
+	color: #fff;
+	border-radius: 4px;
+}
+
+/* dog card img styles */
+.dog-card img {
+    transform-origin: center;
+    transform: perspective(500px) rotateY(25deg);
+    transition: 0.3s;
+}
+
+
+
+.dog-card img:hover {
+	transform: perspective(200px) rotateY(0deg);
+	opacity: 1;
+}
+
+/* card containers */
+.cardCont {
+	display: flex;
+	flex-wrap: wrap;
+
+
+	justify-content: left;
+	align-items: center;
+	gap: 20px;
+
+}
+
+.dog-card h3, h4 {
+	color:#8ca6db;
+	font-size: large;
+	font-weight: bold;
 }
