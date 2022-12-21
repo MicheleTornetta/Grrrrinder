@@ -28,7 +28,6 @@ router.get('/', checkAuth, async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newUser = req.body;
-        console.log(newUser);
 
         if (newUser.password?.length < 8) {
           res.status(400).json({err: "Password must be at least 8 characters."});
@@ -37,7 +36,7 @@ router.post('/', async (req, res) => {
         // create the newuser with the hashed password and save to DB
         const userData = await Owner.create(newUser);
 
-          req.session.userId = userData.id;
+          req.session.user = userData.id;
           req.session.username = userData.username;
           req.session.loggedIn = true;
     
@@ -84,11 +83,10 @@ router.post('/login', async (req, res) => {
       if (userData) {
         if (await bcrypt.compare(user.password, userData.password)) {
 
-            req.session.userId = userData.id;
+            req.session.user = userData.id;
             req.session.username = userData.username;
             req.session.loggedIn = true;
     
-          console.log(req.session);
           res.status(200).json({
             username: userData.username,
             email: userData.email,

@@ -34,7 +34,6 @@
     }).then(res => {
       if (res.status === 200) {
         res.json().then(res => {
-          console.log(res);
           if (res.err) {
             alert(res.err);
           }

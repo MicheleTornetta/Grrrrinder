@@ -1,61 +1,61 @@
 
-<body>
 <h2>Match Up and Meet With Other Dogs!</h2>
 
 <p>Please select your preferences from the following drop-down menus.</p>
 
-<form id="matchform"> 
+<form id="matchform" action="/matchresults" > 
 
   <label for="dog_gender">What is your preferred gender? :</label>
   <select name="dog_gender" id="dog_gender">
+    <option value="no_preference">No preference</option>
     <option value="male">Male</option>
     <option value="female">Female</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="dog_size">What is your preferred dog size? :</label>
   <select name="dog_size" id="dog_size">
+    <option value="no_preference">No preference</option>
     <option value="small">Small</option>
     <option value="medium">Medium</option>
     <option value="large">Large</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="dog_age">What is your preferred dog age? :</label>
   <select name="dog_age" id="dog_age">
+    <option value="no_preference">No preference</option>
     <option value="puppy">Puppy</option>
     <option value="youth">Youth</option>
     <option value="adult">Adult</option>
     <option value="senior">Senior</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="dog_vaccinations">Would you like the dog to be vaccinated? :</label>
   <select name="dog_vaccinations" id="dog_vaccinations">
+    <option value="no_preference">No preference</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="dog_neuter_spayed">Would you like the dog to be neutered/spayed? :</label>
   <select name="dog_neuter_spayed" id="dog_neuter_spayed">
+    <option value="no_preference">No preference</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="dog_temperment">What is your preferred dog temperment? :</label>
   <select name="dog_temperment" id="dog_temperment">
+    <option value="no_preference">No preference</option>
     <option value="shy">Shy</option>
     <option value="calm">Calm</option>
     <option value="energetic">Energetic</option>
     <option value="outgoing">Outgoing</option>
     <option value="outgoing">Leader</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="preferred_days">What is your preferred day to meet? :</label>
   <select name="preferred_days" id="preferred_days">
+    <option value="no_preference">No preference</option>
     <option value="monday">Monday</option>
     <option value="tuesday">Tuesday</option>
     <option value="wednesday">Wednesday</option>
@@ -63,17 +63,17 @@
     <option value="Friday">Friday</option>
     <option value="Saturday">Saturday</option>
     <option value="Sunday">Sunday</option>
-    <option value="no_preference">No preference</option>
   </select>
   <br><br>
  <label for="preferred_timeofday">What is your preferred time of day to meet? :</label>
   <select name="preferred_timeofday" id="preferred_timeofday">
+    <option value="no_preference">No preference</option>
     <option value="morning">Morning</option>
     <option value="afternoon">Afternoon</option>
     <option value="evening">Evening</option>
-    <option value="no_preference">No preference</option>
   </select>
-<p>Please enter the zip code of your preferred location: </p>
+  <br><br>
+<label for="preferred_location">Please enter the zip code of your preferred location: </label>
   <input type= "text" id="preferred_location" name="preferred_location"></input> <br><br>
 
   <br><br>
@@ -81,7 +81,3 @@
 </form>
 
 <p>Click the "Submit" button to view your dog's matches!".</p>
-
-<script src = "/public/assets/js/script.js"></script>
-
-</body>
