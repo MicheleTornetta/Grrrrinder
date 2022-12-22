@@ -1,23 +1,29 @@
-<h1>Hi!</h1>
+<h1>Your Profile</h1>
 
 {{#each dogs}}
 
-<img src={{dog_picture}} alt="Dog">
+<div class="dog-card">
+    <h2>{{dog_name}}</h2>
+    <img src={{dog_picture}} alt="Dog">
+    <h3>A bit about {{dog_name}}</h3>
+    <ul class="actual-ul">
+        <li>{{dog_name}} is a {{dog_gender}} {{dog_breed}}.</li>
+        <li>My {{dog_age}} is {{dog_size}}.</li>
+        <li>A word that best decribes my dog is: "{{dog_temperment}}".</li>
+    </ul>
+    <h4>Health Status</h4>
+    <ul class="actual-ul">
+        <li>Vaccinated: {{dog_vaccinations}}</li>
+        <li>Neutered/Spayed: {{dog_neuter_spayed}}</li>
+    </ul>
 
-<p>
-    {{dog_name}}
-    {{dog_breed}}
-    {{dog_gender}}
-    {{dog_size}}
-    {{dog_age}}
-    {{dog_vaccinations}}
-    {{dog_neuter_spayed}}
-    {{dog_temperment}}
-    {{dog_notes}}
-    {{preferred_days}}
-    {{preferred_timeofday}}
-    {{preferred_location}}
-
-</p>
+    <h4>When to meet</h4>
+    <ul class="actual-ul">
+        <li>I would prefer to meet on {{preferred_days}} in the {{preferred_timeofday}}. My ZIP code is {{preferred_location}}.</li>
+    </ul>
+    
+    <h4>A little more about my dog: </h4>
+    <p>{{dog_notes}}</p>    
+</div>
 
 {{/each}}

@@ -5,45 +5,19 @@ const { Op } = require('sequelize');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-// GET all dogs & GET dogs based on specific search criteria
-router.get('/', async (req, res) => {
-    try {
-        const queryFields = ["dog_gender", "dog_size", "dog_age", "dog_vaccinations", "dog_neuter_spayed","dog_temperment", "preferred_days", "preferred_timeofday", "preferred_location"] //if we only want to search for 'all dogs' we would just leave this array empty.
-        const query = {}
-        queryFields.forEach ((queryField)=>{
-            if (req.query[queryField]){
-                query[queryField]= req.query[queryField]
-            }
-        })
-        const dogData = await Dog.findAll({
-            where: query
-        });
-        if (!dogData) {
-            res.status(404).json({ message: "No dogs found meeting that search criteria" });
-            return;
-        }
-        res.status(200).json(dogData);
-    }
-    catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-
 
 // CREATE new dog profile 
 router.post('/', checkAuth, async (req, res) => {
     try {
-        console.log(req.body)
         const dogData = await Dog.create({
-            owner_id: req.session.owner,
+            owner_id: req.session.user,
             dog_name: req.body.dog_name,
             dog_breed: req.body.dog_breed,
             dog_gender: req.body.dog_gender,
             dog_size: req.body.dog_size,
             dog_age: req.body.dog_age,
-            dog_vaccinations: req.body.dog_vaccinations,
-            dog_neuter_spayed: req.body.dog_neuter_spayed,
+            dog_vaccinations: req.body.dog_vaccinations==="yes",
+            dog_neuter_spayed: req.body.dog_neuter_spayed==="yes",
             dog_temperment: req.body.dog_temperment,
             dog_notes: req.body.dog_notes,
             dog_picture: req.body.dog_picture,
@@ -53,7 +27,6 @@ router.post('/', checkAuth, async (req, res) => {
         }); 
 
         res.status(200).json(dogData);
-
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -66,7 +39,7 @@ router.put('/:id', checkAuth, async (req, res) => {
          const dogData = await Dog.update(req.body, {
 
             where: {
-                owner_id: req.session.owner,
+                owner_id: req.session.user,
                 id: req.params.id,
             }
         });
@@ -84,7 +57,7 @@ router.delete('/:id', checkAuth, async (req, res) => {
     try {
         const dogData = await Dog.destroy({
             where: {
-                owner_id: req.session.owner,
+                owner_id: req.session.user,
                 id: req.params.id,
             }
         })
@@ -116,16 +89,20 @@ router.post('/contact', checkAuth, async (req, res) => {
             from: 'grrrrinderdogmeetup@gmail.com',
             to: dogOwner.email,
             subject: 'My dog wants to meet your dog',
-            text: 'If your dog is interested, please email me at ' + dogOwner.email + '. Thanks, ' + dogOwner.name + '.' 
-        
+            text: 'If your dog is interested, please email me at ' + owner.email + '. Thanks, ' + owner.name + '.'
           };
           
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
               console.log(error);
+              res.status(500).json(error);
             } else {
               console.log('Email sent: ' + info.response);
             }
+          });
+
+          res.json({
+            status: 'success'
           });
     }
     catch (err) {
