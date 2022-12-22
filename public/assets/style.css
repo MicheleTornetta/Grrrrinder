@@ -274,13 +274,13 @@ p {
 	background-image: '/.logo.png';
 	display: grid;
 	grid-template-areas: "left right";
-	max-width: 80;
+	max-width: 100%;
 }
 
 /* Add a dog page left inner-container */
-#addadog1 {
+#addadog {
 
-	background-color: #8ca6db95;
+	background-color: #d4ae7a6d;
 	border-radius: 2.5em;
 	width: 100%;
 	padding: 50px 50px;
@@ -289,29 +289,29 @@ p {
 }
 
 /* Add a dog page right inner-container */
-#addadog2 {
+/* #addadog2 {
 
 	background-color: #d4ae7a6d;
 	border-radius: 2.5em;
 	width: 100%;
 	padding: 50px 50px;
 
-}
+} */
 
 /* Add a dog page inner-container input fields */
-#addadog1 input,
-#addadog2 input {
+#addadog input {
 	border: 1px solid #d4af7a;
-	background: #fff;
+	background: rgb(212, 243, 194);
 	border-radius: 4px;
 	height: 38px;
 	line-height: 38px;
 	padding-left: 5px;
+	display:flex;
 	align-items: center;
 	justify-content: center;
 }
 
-#addadog2 textarea {
+#addadog textarea {
 	border: 1px solid #d4af7a;
 	background: #fff;
 	border-radius: 4px;
@@ -467,7 +467,7 @@ span {
 /* dog card styles */
 
 .dog-card {
-	background-color: #141820;
+	background-color: #8ca6db95;
 	color: #fff;
 	border-radius: 4px;
 }
@@ -501,3 +501,32 @@ span {
 	font-size: large;
 	font-weight: bold;
 }
+
+
+
+@media screen and (min-width: 350px){
+    body {
+        display:flex;
+        flex-direction:column;
+        flex-basis: 100%;
+    }
+    body {
+        display:flex;
+        flex-direction:column;
+        flex-basis: 70%;
+    }
+
+}
+
+
+@media screen and (min-width: 780px){
+    body {
+        display:flex;
+        flex-direction:column;
+        flex-basis: 50%;
+    }
+    body {
+        display:flex;
+        flex-direction:column;
+        flex-basis: 50%;
+}}
