@@ -63,7 +63,7 @@ For our pup play date website, we had to set up three models:
 
 <strong>Dog Model</strong>
 
-The dog model was used to store information about the dog, that would be included in the dog's profile. This model had a few versions before ultimately deciding on the version you see below. This was one of the more important models, as it holds the information necessary for an owner to create the profile. 
+The dog model was used to store information about the dog, that would be included in the dog's profile. This model had a few versions before ultimately deciding on the final version. This was one of the more important models, as it holds the information necessary for an owner to create the profile. 
 
 
 <strong>Owner Model</strong>
@@ -84,7 +84,7 @@ Once our server and models were created, we were able to move on and set up the 
 
 The dog route utilizes four types of HTTP requests:
 
-+ Get - Allows the user to either search all dogs, or search dogs based on specific search criteria. Figuring out this specific code was a bit tricky, but ultimately we were able to accomplish our goal by adding a 'where: query'. See the code below! 
++ Get - Allows the user to either search all dogs, or search dogs based on specific search criteria. Figuring out this specific code was a bit tricky, but ultimately we were able to accomplish our goal by adding a 'where: query'. 
 
 - Post - Allows the user to create a new profile and send a request for email contact. 
 
