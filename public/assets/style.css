@@ -44,7 +44,7 @@ input {
 
 	border: 3px;
 	outline: 3px;
-	background: rgb(152, 209, 169);
+	background: rgb(255, 255, 255);
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
@@ -301,7 +301,7 @@ p {
 /* Add a dog page inner-container input fields */
 #addadog input {
 	border: 1px solid #d4af7a;
-	background: rgb(212, 243, 194);
+	background: rgb(255, 255, 255);
 	border-radius: 4px;
 	height: 38px;
 	line-height: 38px;
@@ -530,3 +530,9 @@ span {
         flex-direction:column;
         flex-basis: 50%;
 }}
+
+@media screen and (max-width: 840px) {
+	.shrink-wrap {
+		flex-direction: column;
+	}
+}
