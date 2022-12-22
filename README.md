@@ -84,7 +84,7 @@ Once our server and models were created, we were able to move on and set up the 
 
 The dog route utilizes four types of HTTP requests:
 
-+ Get - Allows the user to either search all dogs, or search dogs based on specific search criteria. Figuring out this specific code was a bit tricky, but ultimately we were able to accomplish our goal by adding a 'where: query'. See the code below! (ENTER PICTURE OF CODE)
++ Get - Allows the user to either search all dogs, or search dogs based on specific search criteria. Figuring out this specific code was a bit tricky, but ultimately we were able to accomplish our goal by adding a 'where: query'. See the code below! 
 
 - Post - Allows the user to create a new profile and send a request for email contact. 
 
