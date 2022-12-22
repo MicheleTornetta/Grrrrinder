@@ -17,7 +17,7 @@ router.get('/profile', async function(req, res){
         const dogData = await Dog.findAll({
           where: {
             owner_id: req.session.user,
-        // ^^^there is a mismatch between the owner_id and the userId which was preventing the rendering of the dog profiles to the profile page 
+
           },
         });
     
@@ -101,12 +101,9 @@ router.get('/matchresults', async (req, res) => {
                 [Op.and]: query
             }
         });
-        // if (!dogData) {
-        //     res.status(404).json({ message: "No dogs found meeting that search criteria" });
-        //     return;
-        // }
+
         const dogs = dogData.map(dog => dog.get({plain: true}));
-        // console.log(dogs);
+
 
         res.render('matchresults', {
             user: req.session.user,
